@@ -6,11 +6,11 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">title</th>
-      <th scope="col">imagen</th>
-      <th scope="col">data</th>
-      <th scope="col">price</th>
-      <th scope="col">more information</th>
+      <th scope="col">Title</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Data</th>
+      <th scope="col">Price</th>
+      <th scope="col">More Information</th>
     </tr>
   </thead>
   <tbody>
