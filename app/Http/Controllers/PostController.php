@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -36,8 +36,22 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {     
+        $request->validate([
+        'imagen'=>'url'
+        ]);
+        // dd($request);
+        $data= $request->all();
+
+        $post = new Post();
+        $post->title=$data['title'];
+        $post->imagen=$data['imagen'];
+        $post->data=$data['data'];
+        $post->price=$data['price'];
+        $post->save();
+
+        // dd('ho fatto'); 
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**

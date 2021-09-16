@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="button-create">
+<a href="{{ route('posts.create')}}"><button class="button-new-p" class="bi bi-calendar-plus">Create New Post</button>  
+</div>
+<br>
 <table class="table table-bordered table-dark">
   <thead>
     <tr>

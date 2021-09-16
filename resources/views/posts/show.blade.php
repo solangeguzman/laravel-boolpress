@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="button-create">
+<a href="{{ route('posts.index')}}"><button class="button-new-p" class="bi bi-calendar-plus">Back to the Home List</button>  
+</div>
 <table class="table table-bordered table-dark">
   <thead>
     <tr>

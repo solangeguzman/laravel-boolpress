@@ -12341,6 +12341,20 @@ a.text-dark:focus {
   color: white;
 }
 
+.button-new-p {
+  background-color: #e2cfb6;
+  color: white;
+  border-radius: 10px;
+  border: 1px white solid;
+}
+
+.button-new-p {
+  background-color: #e2cfb6;
+  color: white;
+  border-radius: 10px;
+  border: 1px white solid;
+}
+
 body {
   background-color: #631b1b;
 }
