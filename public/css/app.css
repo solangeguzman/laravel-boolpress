@@ -12348,6 +12348,13 @@ a.text-dark:focus {
   border: 1px white solid;
 }
 
+.button-delete {
+  background-color: #b13838;
+  color: white;
+  border-radius: 50%;
+  border: 1px white solid;
+}
+
 .button-new-p {
   background-color: #e2cfb6;
   color: white;

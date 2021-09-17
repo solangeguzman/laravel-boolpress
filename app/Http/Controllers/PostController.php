@@ -72,9 +72,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+    //    dd($post);
+       return view('posts.edit', compact('post'));
     }
 
     /**
@@ -84,9 +85,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+
+        $post->update($data); 
+        // sopra fill + save
+        // $this->fillAndSavePost($post, $data); seconda soluzione
+        
+        return redirect()->route('posts.show', $post);
     }
 
     /**
@@ -95,8 +102,18 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts.index');
     }
+
+    // private function fillAndSavePost( Post $post, $data){
+    //     $post->title=$data['title'];
+    //     $post->imagen=$data['imagen'];
+    //     $post->data=$data['data'];
+    //     $post->price=$data['price'];
+    //     $post->save();
+    // }  //  ----->SECONDA SOLUZIONE
 }
