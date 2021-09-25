@@ -6,7 +6,7 @@
                     <div class="card-header">Lista Posts</div>
                    
                     <div class="card-body">
-                       PIPPO
+                       list
                     </div>
                 </div>
             </div>

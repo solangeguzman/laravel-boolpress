@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Database\Seeder;
 use App\Post;
+use App\PostDetail;
 use Faker\Generator as Faker;
 class PostsTableSeeder extends Seeder
 {
@@ -11,13 +12,43 @@ class PostsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        //   
+
+    $categoryList=[
+        'thriller',
+        'Comico',
+        'horror',
+        'avventura'
+    ];
+
+    $listOfCategoryID =[];
+
+    foreach($categoryList as $category){
+        $categoryObject= new Category();
+        $categoryObject->name = $category;
+        $categoryObject->save();
+        $listOfCategoryID[] = $categoryObject->id;
+    }
+       
      for ($i = 0; $i <50; $i++){
+     
+       $postDetail = new PostDetail();
+       $postDetail->form_factor = $faker->words(1, true);
+       $postDetail->publisher = $faker->words(1, true);
+       $postDetail->publication_year = $faker->date('Y');
+       $postDetail->save();
+
        $postObject = new Post();
        $postObject->title= $faker->sentence(10);
        $postObject->imagen= $faker->imageUrl(640,480,'posts',true);
        $postObject->data= $faker->dateTime();
+     
+       $randCategoryKey = array_rand($listOfCategoryID, 1);
+       $categoryID= $listOfCategoryID[$randCategoryKey];
+       $post->category_id=$categoryID;
        $postObject->price= $faker->randomFloat(2,5,100);
+       
+       $post->post_detail_id = $PostDetail->id;
+       
        $postObject->save();
     }
 

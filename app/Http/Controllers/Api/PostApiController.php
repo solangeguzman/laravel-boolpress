@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Post;
 use Illuminate\Http\Request;
+use App\Post;
 
-
-class PostController extends Controller
+class PostApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-       $posts = Post::all();
-       return response()->json($posts);
+        $posts = Post::paginate(7);
+        return response()->json($posts);
     }
 
     /**
